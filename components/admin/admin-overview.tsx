@@ -48,7 +48,7 @@ export function AdminOverview() {
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {stats.map((stat) => (
-          <Card key={stat.title}>
+          <Card key={stat.title} className="bg-white">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">{stat.title}</CardTitle>
               <stat.icon className="h-4 w-4 text-muted-foreground" />
@@ -59,7 +59,9 @@ export function AdminOverview() {
                 <Badge
                   variant="secondary"
                   className={
-                    stat.changeType === "positive" ? "bg-emerald-100 text-emerald-800" : "bg-red-100 text-red-800"
+                    stat.changeType === "positive"
+                      ? "bg-emerald-100 text-emerald-800"
+                      : "bg-red-100 text-red-800"
                   }
                 >
                   {stat.change}
@@ -71,7 +73,7 @@ export function AdminOverview() {
         ))}
       </div>
 
-      <Card>
+      <Card className="bg-white">
         <CardHeader>
           <CardTitle>Actions Requises</CardTitle>
           <CardDescription>Éléments nécessitant votre attention</CardDescription>

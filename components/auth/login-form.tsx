@@ -1,13 +1,13 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 import { Mail, Lock, Eye, EyeOff } from "lucide-react"
+import { FaGoogle, FaFacebook } from "react-icons/fa"
 
 export function LoginForm() {
   const [showPassword, setShowPassword] = useState(false)
@@ -18,13 +18,31 @@ export function LoginForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: Implement authentication logic
     console.log("Login attempt:", formData)
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4 bg-background">
+       <div className="text-center mb-6">
+              <h1 className="text-3xl font-bold">Dayastates</h1>
+              <p className="text-lg text-muted-foreground mt-2">Bienvenue de retour</p>
+            </div>
       <div className="space-y-2">
+         {/* Social login buttons */}
+      <div className="mx-auto flex justify-center gap-4">
+        <Button variant="outline" className="h-16 w-16 rounded-full flex items-center justify-center bg-transparent" type="button">
+          <FaGoogle className="h-22 w-22"  />
+        </Button>
+        <Button variant="outline" className="h-16 w-16 rounded-full flex items-center justify-center bg-transparent" type="button">
+          <FaFacebook className="h-22 w-22 " />
+        </Button>
+      </div>
+      <div className="flex items-center my-4">
+  <Separator className="flex-1" />
+  <span className="px-4 text-sm text-muted-foreground">OU</span>
+  <Separator className="flex-1" />
+</div>
+
         <Label htmlFor="email">Email</Label>
         <div className="relative">
           <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -32,7 +50,7 @@ export function LoginForm() {
             id="email"
             type="email"
             placeholder="votre@email.com"
-            className="pl-10"
+            className="p-7 rounded-full"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             required
@@ -48,7 +66,7 @@ export function LoginForm() {
             id="password"
             type={showPassword ? "text" : "password"}
             placeholder="••••••••"
-            className="pl-10 pr-10"
+            className="p-7 rounded-full"
             value={formData.password}
             onChange={(e) => setFormData({ ...formData, password: e.target.value })}
             required
@@ -65,7 +83,7 @@ export function LoginForm() {
         </div>
       </div>
 
-      <Button type="submit" className="w-full">
+      <Button type="submit" className="w-full p-7 rounded-full">
         Se connecter
       </Button>
 
@@ -77,14 +95,7 @@ export function LoginForm() {
 
       <Separator />
 
-      <div className="space-y-2">
-        <Button variant="outline" className="w-full bg-transparent" type="button">
-          Continuer avec Google
-        </Button>
-        <Button variant="outline" className="w-full bg-transparent" type="button">
-          Continuer avec Facebook
-        </Button>
-      </div>
+     
     </form>
   )
 }

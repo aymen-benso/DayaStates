@@ -43,7 +43,7 @@ const activities = [
 
 export function RecentActivity() {
   return (
-    <Card>
+    <Card className="bg-white">
       <CardHeader>
         <CardTitle>Activité Récente</CardTitle>
         <CardDescription>Dernières actions sur la plateforme</CardDescription>

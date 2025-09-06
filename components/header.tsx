@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import {
   NavigationMenu,
@@ -14,7 +15,7 @@ import {
 import { NotificationCenter } from "@/components/messaging/notification-center"
 import { Menu, X, Home, Building, Hotel, MapPin } from "lucide-react"
 
-export function Header() {
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
@@ -81,11 +82,16 @@ export function Header() {
                 À propos
               </Link>
             </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/faq" className="px-4 py-2 text-sm font-medium hover:text-primary">
+                FAQ
+              </Link>
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* Auth Buttons & Notifications */}
-        <div className="hidden md:flex items-center space-x-2">
+        {/* Auth Buttons, Notifications & Profile */}
+        <div className="hidden md:flex items-center space-x-4">
           <NotificationCenter />
           <Button variant="ghost" asChild>
             <Link href="/login">Connexion</Link>
@@ -93,10 +99,24 @@ export function Header() {
           <Button asChild>
             <Link href="/register">Inscription</Link>
           </Button>
+          <Link href="/profile" className="flex items-center">
+            <Image
+              src="/profile.png" 
+              alt="Profile"
+              width={36}
+              height={36}
+              className="rounded-full border border-gray-300 hover:opacity-80 transition"
+            />
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
-        <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="md:hidden"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
           {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </Button>
       </div>
@@ -114,12 +134,18 @@ export function Header() {
             <Link href="/about" className="block py-2 text-sm font-medium hover:text-primary">
               À propos
             </Link>
+            <Link href="/faq" className="block py-2 text-sm font-medium hover:text-primary">
+              FAQ
+            </Link>
             <div className="pt-4 space-y-2">
               <Button variant="ghost" className="w-full justify-start" asChild>
                 <Link href="/login">Connexion</Link>
               </Button>
               <Button className="w-full" asChild>
                 <Link href="/register">Inscription</Link>
+              </Button>
+              <Button variant="outline" className="w-full justify-start" asChild>
+                <Link href="/profile">Mon profil</Link>
               </Button>
             </div>
           </div>
