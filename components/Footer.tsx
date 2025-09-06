@@ -2,23 +2,23 @@
 
 import Link from "next/link";
 import { Facebook, Twitter, Instagram } from "lucide-react";
-import {Newsletter }from "@/components/Newsletter"; // ✅ import once
+import {Newsletter }from "@/components/Newsletter"; 
 
 export default function Footer() {
   return (
     <div>
-       {/* ✅ Newsletter above footer content */}
+       
       <div className=" -mb-30">
         <Newsletter />
       </div>
   <footer className="bg-[#1d211e] text-gray-500 py-22">
      
 
-      {/* ✅ Main footer grid */}
+     
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10 mt-16">
         {/* Logo + Description */}
         <div>
-          <h2 className="text-2xl font-bold text-white mb-3">MonImmo</h2>
+          <h2 className="text-2xl font-bold text-white mb-3">DayaStates</h2>
           <p className="text-sm">
             Trouvez la maison de vos rêves grâce à notre plateforme moderne et
             intuitive. Nous vous aidons à chaque étape de votre recherche
@@ -67,7 +67,7 @@ export default function Footer() {
         {/* Contact */}
         <div>
           <h3 className="text-lg font-semibold text-white mb-3">Contact</h3>
-          <p className="text-sm">Email : contact@monimmo.com</p>
+          <p className="text-sm">Email : contact@DayaStates.com</p>
           <p className="text-sm">Téléphone : +33 1 23 45 67 89</p>
           <div className="flex items-center gap-4 mt-4">
             <Link href="#" className="hover:text-green-500">
@@ -85,7 +85,7 @@ export default function Footer() {
 
       {/* Bas du footer */}
       <div className="mt-10 border-t border-gray-700 text-center pt-4 text-sm">
-        © {new Date().getFullYear()} MonImmo. Tous droits réservés.
+        © {new Date().getFullYear()} DayaStates. Tous droits réservés.
       </div>
     </footer>
     </div>
