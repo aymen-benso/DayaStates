@@ -4,7 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
+ --background: oklch(99.42% 0.001 155.49);
+
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -120,4 +121,9 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
 }
